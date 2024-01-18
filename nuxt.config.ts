@@ -12,7 +12,7 @@ export default defineNuxtConfig({
 		'unplugin-turbo-console/nuxt',
 		'@nuxt/image',
 	],
-	ssr: false,
+	ssr: true,
 	colorMode: {
 		classSuffix: '',
 	  },

@@ -8,15 +8,11 @@
         "dbaeumer.vscode-eslint",
         "github.vscode-pull-request-github",
         "antfu.goto-alias",
-        "lokalise.i18n-ally",
         "antfu.iconify",
         "davidanson.vscode-markdownlint",
-        "esbenp.prettier-vscode",
-        "rvest.vs-code-prettier-eslint",
-        "nomicfoundation.hardhat-solidity",
         "chakrounanas.turbo-console-log",
-        "antfu.unocss",
         "antfu.vite",
-        "vue.volar"
+        "vue.volar",
+        "bradlc.vscode-tailwindcss"
     ]
 }
