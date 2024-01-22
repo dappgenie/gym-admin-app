@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const router = useRouter()
 const handleFormSubmission=(item:any)=>{
   const myObject = ref({});
   myObject.value=item
@@ -8,6 +9,7 @@ const isObjectEmpty = () => {
   return Object.keys(myObject.value).length === 0;                                   
 }
 console.log('lllllll',isObjectEmpty())
+router.push('/dashboard')
 }
 </script>
 

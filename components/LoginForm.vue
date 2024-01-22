@@ -5,7 +5,7 @@ import type { FormSubmitEvent } from '#ui/types'
 
 
 const router = useRouter()
-const INPUT_CLASS = 'h-11 dark:!text-white dark:!bg-secondary-900 !border !shadow-none !ring-0 !border-border-100 dark:!border-border-900'
+const INPUT_CLASS = 'h-11 dark:!text-white !border !shadow-none !ring-0 !border-border-100 dark:!border-border-900'
 const types = ref(false)
 const schema = z.object({
   email: z.string().email('Invalid email'),
@@ -43,8 +43,8 @@ async function submit(event: FormSubmitEvent<LoginSchema>) {
       <UFormGroup label="Password" name="password" class="relative pb-3 text-sm !text-start">
         <UInput :input-class="INPUT_CLASS" v-model="state.password" :type="types === true ? 'text' : 'password'" />
         <div class="absolute right-3 top-4 cursor-pointer" @click="types = !types">
-          <UIcon v-if="types" name="i-heroicons-eye" class="w-5 h-5 text-black dark:bg-secondary-200" />
-          <UIcon v-if="!types" name="i-heroicons-eye-slash" class="w-5 h-5 text-black dark:bg-secondary-200" />
+          <UIcon v-if="types" name="i-heroicons-eye" class="w-5 h-5 text-black " />
+          <UIcon v-if="!types" name="i-heroicons-eye-slash" class="w-5 h-5 text-black " />
         </div>
       </UFormGroup>
       <div class="underline cursor-pointer text-end py-2 mb-3" @click="router.push(`/forgot-password`)">
