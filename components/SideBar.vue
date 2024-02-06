@@ -2,11 +2,20 @@
 import { links } from '~/constants/sidebar_menu'
 import LOGO from '~/public/assets/dappgenie_logo.png'
 
+interface AccordionItem {
+  label: string;
+  defaultOpen?: boolean;
+  content: {
+    title: string;
+    link: string;
+  }[];
+}
 
 const route = useRoute();
 const router = useRouter();
 const divActivate = ref(false)
 const labelName = ref('')
+const accordionData = ref<AccordionItem>()
 const target = ref<HTMLDivElement>()
 
 onClickOutside(target, () => {
@@ -16,9 +25,10 @@ onClickOutside(target, () => {
 })
 
 const activateDivFunction=(link:any)=>{
-  if(link.links){
+  if(link.accordionItem){
     divActivate.value = !divActivate.value
     labelName.value=link.label
+    accordionData.value=link.accordionItem
   }
   
 }
@@ -48,7 +58,7 @@ const activateDivFunction=(link:any)=>{
                 <UIcon class="icon-style " :name="link.icon" />
                 <span class="group-hover:text-primary ">{{ link.label }}</span>
               </div>
-              <UIcon v-if="link.links" class="icon-style duration-300 ease-in-out" :class="!divActivate ? 'rotate-0' : 'rotate-180'"  name="i-heroicons-chevron-right" />
+              <UIcon v-if="link.accordionItem" class="icon-style duration-300 ease-in-out" :class="!divActivate ? 'rotate-0' : 'rotate-180'"  name="i-heroicons-chevron-right" />
             </div>
           </template>
         </UVerticalNavigation>
@@ -59,7 +69,7 @@ const activateDivFunction=(link:any)=>{
     </div> -->
     <transition name="fade">
       <div v-if="divActivate" ref="target" class="bg-[#292929] 	div-class shadow-md h-full left-36 fixed">
-        <MenuSection :label-name="labelName"/>
+        <MenuSection :accordion-item="accordionData" :label-name="labelName"/>
       </div>
     </transition>
   </div>

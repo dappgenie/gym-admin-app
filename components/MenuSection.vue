@@ -1,11 +1,5 @@
     
 <script lang="ts" setup>
-interface MenuSectionProps {
-  labelName: string
-}
-
-const props = defineProps<MenuSectionProps>()
-
 
 interface AccordionItem {
   label: string;
@@ -15,6 +9,17 @@ interface AccordionItem {
     link: string;
   }[];
 }
+
+interface MenuSectionProps {
+  labelName: string
+  accordionItem:AccordionItem |undefined
+}
+
+
+const props = defineProps<MenuSectionProps>()
+
+
+
 
 const items: AccordionItem[] = [
 { label: 'Item 1', defaultOpen:true, content: [{ title: 'Content can also', link: '/login' }, { title: 'Content can also', link: '/login' }] },
@@ -27,7 +32,7 @@ const items: AccordionItem[] = [
   <div class=" text-white ">
     <div>{{ labelName }}</div>
     <div>
-      <UAccordion :items="items">
+      <UAccordion :items="accordionItem">
         <template #default="{ item, index, open }">
           <UButton color="gray" variant="ghost" class=" text-white " 
             :ui="{ rounded: 'rounded-none', padding: { sm: 'p-3' } }">
