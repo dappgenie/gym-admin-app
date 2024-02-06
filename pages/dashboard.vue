@@ -7,16 +7,16 @@ definePageMeta({
 
 
 <template>
-  <Header />
-  <SideBar />
-  <div class="flex justify-end  h-[150vh]">
-    <div class="w-80%">fgfg</div>
-  </div>
+  <PageLayout>
+    <template name="content">
+      d
+    </template>
+  </PageLayout>
 </template>
 
 
 <style scoped>
-* {
+/* * {
   border: red solid 1px;
-}
+} */
 </style>

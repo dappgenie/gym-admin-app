@@ -44,9 +44,9 @@
 </template>
     
 <style scoped>
-* {
+/* * {
   border: red solid 1px
-}
+} */
 
 .slot-class {
   @apply text-center;

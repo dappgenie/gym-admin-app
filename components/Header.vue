@@ -5,7 +5,7 @@ const items = [
   }]
 ]
 const items1 = [
-[{
+  [{
     label: 'ben@example.com',
     slot: 'account',
     disabled: true
@@ -19,7 +19,7 @@ const items1 = [
     label: 'Status',
   }], [{
     label: 'Sign out',
-    
+
   }]
 ]
 
@@ -27,22 +27,14 @@ const items1 = [
 
 
 <template>
-  <div class="header-class py-7  whitespace-nowrap truncate flex-row fixed justify-between flex">
-    <div class="flex">
-      <UDropdown :items="items" mode="hover" :popper="{ placement: 'bottom-start' }">
-        <UButton color="white" label="Member Name" trailing-icon="i-heroicons-chevron-down-20-solid" />
-      </UDropdown>
-      <UInput color="gray" variant="outline" placeholder="Search" />
-      <UButton>Go</UButton>
+  <div class="header-class py-7  whitespace-nowrap truncate flex-row fixed  flex justify-end">
 
-    </div>
-    <div>
+    <div class="flex space-x-2 justify-end text-primary float-right">
+      <UIcon class="h-7 w-7" name="i-heroicons-magnifying-glass" />
+      <UIcon class="h-7 w-7" name="i-heroicons-plus-circle" />
+      <UIcon class="h-7 w-7" name="i-heroicons-user-circle" />
+      <UIcon name="i-heroicons-light-bulb" />
 
-    </div>
-    <div>
-      <UDropdown :items="items1" mode="hover" :popper="{ placement: 'bottom-start' }">
-        <UButton color="white" label="Gym Owner Name" trailing-icon="i-heroicons-chevron-down-20-solid" />
-      </UDropdown>
     </div>
   </div>
 </template>
@@ -50,7 +42,11 @@ const items1 = [
 
 
 <style scoped>
+/* * {
+  border: red solid 1px
+} */
+
 .header-class {
- @apply w-full;
+  @apply w-[inherit] bg-white shadow-md rounded-lg;
 }
 </style>

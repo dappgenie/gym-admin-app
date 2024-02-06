@@ -1,44 +1,53 @@
+
+interface AccordionItem {
+  label: string;
+  defaultOpen?: boolean;
+  content: {
+    title: string;
+    link: string;
+  }[];
+}
+
 export const links = 
   [{
     label: 'Dashboard',
-    iconName: 'i-heroicons-presentation-chart-line',
+    icon: 'i-heroicons-bars-4',
     
   },
   {
     label: 'Enquiries',
-    iconName: 'i-heroicons-credit-card',
-    links:[{ title: 'Content can also', link: '/login' },{ title: 'Content can also', link: '/login' }]
+    icon: 'i-heroicons-phone',
     
   },
   {
-    label: 'Members',
-    iconName: 'i-heroicons-user-group',
+    label: 'Marketing',
+    icon: 'i-heroicons-megaphone',
     links:[{ title: 'Content can also', link: '/login' },{ title: 'Content can also', link: '/login' }]
 
   },
   {
-    label: 'Invoices',
-    iconName: 'i-heroicons-book-open',
+    label: 'Clients',
+    icon: 'i-heroicons-users',
     
   },
   {
-    label: 'Communications',
-    iconName: 'i-heroicons-chat-bubble-bottom-center-text',
-    
-  },
-  {
-    label: 'Bookings',
-    iconName: 'i-heroicons-building-office-2',
+    label: 'Training',
+    icon: 'i-heroicons-clock',
     
   },
   {
     label: 'Staff',
-    iconName: 'i-heroicons-user',
+    icon: 'i-heroicons-user',
     
   },
   {
-    label: 'Merchandise',
-    iconName: 'i-heroicons-cog-8-tooth',
+    label: 'Reports',
+    icon: 'i-heroicons-clipboard-document-list',
+    
+  },
+  {
+    label: 'Setup',
+    icon: 'i-heroicons-cog-6-tooth',
     
   },
 ]

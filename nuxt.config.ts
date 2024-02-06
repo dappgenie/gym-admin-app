@@ -13,9 +13,9 @@ export default defineNuxtConfig({
 		'@nuxt/image',
 	],
 	ssr: true,
-	colorMode: {
-		classSuffix: '',
-	  },
+	// colorMode: {
+	// 	classSuffix: '',
+	//   },
 	
 	  nitro: {
 		esbuild: {

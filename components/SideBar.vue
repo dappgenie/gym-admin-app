@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { links } from '~/constants/sidebar_menu'
+import LOGO from '~/public/assets/dappgenie_logo.png'
 
 
 const route = useRoute();
@@ -15,20 +16,24 @@ onClickOutside(target, () => {
 })
 
 const activateDivFunction=(link:any)=>{
-  if(link.links)
-    divActivate.value = true
+  if(link.links){
+    divActivate.value = !divActivate.value
     labelName.value=link.label
+  }
   
 }
 </script>
 
 <template>
   <div class="flex justify-start   ">
-    <div class="main-div bg-black fixed top-[5.5rem]">
+    <div class="main-div flex  justify-around bg-[#3C3C3C]  fixed">
+      <div class="h-[22vh]  items-center text-center flex">
+        <img class="m-auto" :src="LOGO" alt="Logo">
+      </div>
       <div>
         <UVerticalNavigation :ui="{
           wrapper:
-            'border-s border-gray-200  space-y-2 ',
+            ' space-y-2 ',
           base: ' block -ms-px flex lg:leading-6 before:hidden !hover:text-[black]',
           padding: '',
           rounded: 'rounded-md',
@@ -40,10 +45,10 @@ const activateDivFunction=(link:any)=>{
           <template class="m-auto" #default="{ link }">
             <div class="flex items-center m-auto">
               <div class="nav-item " @click="activateDivFunction(link)">
-                <UIcon class="icon-style" :name="link.iconName" />
+                <UIcon class="icon-style " :name="link.icon" />
                 <span class="group-hover:text-primary ">{{ link.label }}</span>
               </div>
-              <UIcon v-if="link.links" class="icon-style" name="i-heroicons-chevron-right" />
+              <UIcon v-if="link.links" class="icon-style duration-300 ease-in-out" :class="!divActivate ? 'rotate-0' : 'rotate-180'"  name="i-heroicons-chevron-right" />
             </div>
           </template>
         </UVerticalNavigation>
@@ -53,19 +58,21 @@ const activateDivFunction=(link:any)=>{
       114
     </div> -->
     <transition name="fade">
-      <div v-if="divActivate" ref="target" class="bg-[#EBEAEA] 	div-class shadow-md h-full left-36 fixed">
+      <div v-if="divActivate" ref="target" class="bg-[#292929] 	div-class shadow-md h-full left-36 fixed">
         <MenuSection :label-name="labelName"/>
       </div>
     </transition>
   </div>
 </template>
 
+<!-- class="font-bold text-white duration-300 ease-in-out"
+:class="isOpen ? 'rotate-0' : 'rotate-180'" -->
 
 <style scoped>
 .main-div {
   /* box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); */
   box-shadow: 1px 4px 3.8px 0px rgba(0, 0, 0, 0.25);
-  @apply h-[100vh] overflow-hidden text-start whitespace-nowrap w-auto truncate justify-start flex-col rounded-lg space-y-1;
+  @apply h-[100vh] overflow-hidden text-start whitespace-nowrap  truncate justify-start flex-col rounded-lg space-y-1 w-[12vw];
 }
 
 .nav-item {
@@ -80,12 +87,12 @@ const activateDivFunction=(link:any)=>{
 }
 
 .active-sublink {
-  @apply text-black dark:text-white;
+  @apply text-black;
 
 }
 
 .div-class {
-  @apply max-w-[220px] w-[200px] delay-150;
+  @apply max-w-[220px] w-[200px] delay-150 z-[1];
 }
 
 /* .fade-enter-active, .fade-leave-active {
