@@ -27,14 +27,12 @@ const items1 = [
 
 
 <template>
-  <div class="header-class py-7  whitespace-nowrap truncate flex-row fixed  flex justify-end">
+  <div class="header-class py-7  whitespace-nowrap truncate">
 
     <div class="flex space-x-2 justify-end text-primary float-right">
       <UIcon class="h-7 w-7" name="i-heroicons-magnifying-glass" />
       <UIcon class="h-7 w-7" name="i-heroicons-plus-circle" />
       <UIcon class="h-7 w-7" name="i-heroicons-user-circle" />
-      <UIcon name="i-heroicons-light-bulb" />
-
     </div>
   </div>
 </template>

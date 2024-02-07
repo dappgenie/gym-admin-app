@@ -8,8 +8,8 @@ definePageMeta({
 
 <template>
   <PageLayout>
-    <template name="content">
-      d
+    <template #content>
+      <div class="m-auto h-full bg-[red]">d</div>
     </template>
   </PageLayout>
 </template>
