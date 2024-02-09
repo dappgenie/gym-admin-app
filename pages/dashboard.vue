@@ -1,8 +1,12 @@
 
 <script lang="ts" setup>
-definePageMeta({
-  layout: 'home'
+const color = useColorMode()
+onMounted(()=>{
+  color.preference = color.value === 'dark' ? 'light' : ''  // Toggles between dark and light color preference
 })
+// definePageMeta({
+//   layout: 'home'
+// })
 </script>
 
 

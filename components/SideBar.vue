@@ -1,6 +1,51 @@
 <script setup lang="ts">
-import { links } from '~/constants/sidebar_menu'
+import  {ClientsAccordionItem,MarketingAccordionItem,ReportsAccordionItem,TrainingAccordionItem}  from '~/constants/sidebar_menu'
 import LOGO from '~/public/assets/dappgenie_logo.png'
+
+  const links = 
+  [{
+    label: 'Dashboard',
+    icon: 'i-heroicons-bars-4',
+  },
+  {
+    label: 'Enquiries',
+    icon: 'i-heroicons-phone',
+    
+  },
+  {
+    label: 'Marketing',
+    icon: 'i-heroicons-megaphone',
+    accordionItem:MarketingAccordionItem
+  },
+  {
+    label: 'Clients',
+    icon: 'i-heroicons-users',
+    accordionItem:ClientsAccordionItem
+    
+  },
+  {
+    label: 'Training',
+    icon: 'i-heroicons-clock',
+    accordionItem:TrainingAccordionItem
+    
+  },
+  {
+    label: 'Staff',
+    icon: 'i-heroicons-user',
+    
+  },
+  {
+    label: 'Reports',
+    icon: 'i-heroicons-clipboard-document-list',
+    accordionItem:ReportsAccordionItem
+    
+  },
+  {
+    label: 'Setup',
+    icon: 'i-heroicons-cog-6-tooth',
+    
+  },
+]
 
 interface AccordionItem {
   label: string;
@@ -43,22 +88,33 @@ const activateDivFunction=(link:any)=>{
       <div>
         <UVerticalNavigation :ui="{
           wrapper:
-            ' space-y-2 ',
-          base: ' block -ms-px flex lg:leading-6 before:hidden !hover:text-[black]',
+            ' space-y-1  ',
+          base: ' block flex lg:leading-6 before:hidden !hover:text-[black]',
           padding: '',
           rounded: 'rounded-md',
           font: '',
           ring: '',
           inactive:
             'border-transparent  hover:text-gray-0  text-secondary-50 '
-        }" :links="links" class=" items-center text-center ">
-          <template class="m-auto" #default="{ link }">
-            <div class="flex items-center m-auto">
+        }" :links="links" class="flex justify-between flex-col items-center text-center ">
+          <template  #icon="{ link }">
+
+            <div class="flex justify-between items-center m-auto">
               <div class="nav-item " @click="activateDivFunction(link)">
                 <UIcon class="icon-style " :name="link.icon" />
                 <span class="group-hover:text-primary ">{{ link.label }}</span>
               </div>
-              <UIcon v-if="link.accordionItem" class="icon-style duration-300 ease-in-out" :class="!divActivate ? 'rotate-0' : 'rotate-180'"  name="i-heroicons-chevron-right" />
+              <UIcon v-if="link.accordionItem" class="icon-style duration-300 ease-in-out" 
+              :class="!divActivate ? 'rotate-0' : 'rotate-180'"  name="i-heroicons-chevron-right" />
+            </div>
+          </template>
+          <template  #default>
+
+            <div >
+              <div class="   invisible" >
+                <!-- <UIcon class="icon-style " :name="link.icon" /> -->
+                <!-- <span class="group-hover:text-primary ">{{ link.label }}</span> -->
+              </div>
             </div>
           </template>
         </UVerticalNavigation>
@@ -82,7 +138,7 @@ const activateDivFunction=(link:any)=>{
 .main-div {
   /* box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); */
   box-shadow: 1px 4px 3.8px 0px rgba(0, 0, 0, 0.25);
-  @apply h-[100vh] overflow-hidden text-start whitespace-nowrap  truncate justify-start flex-col rounded-lg space-y-1 w-[12vw];
+  @apply h-[100vh] overflow-hidden text-start whitespace-nowrap  truncate justify-start flex-col rounded-lg space-y-1 w-[14vw];
 }
 
 .nav-item {
@@ -90,49 +146,20 @@ const activateDivFunction=(link:any)=>{
 }
 
 
-.active-settings,
-.active-route {
-  background-color: #1B70F1;
-  color: white;
-}
 
-.active-sublink {
-  @apply text-black;
-
-}
 
 .div-class {
   @apply max-w-[220px] w-[200px] delay-150 z-[1];
 }
 
-/* .fade-enter-active, .fade-leave-active {
-  transition: opacity 0.5s;
-}
 
-.fade-enter, .fade-leave-to {
-  opacity: 0;
-} */
-.fade-enter-active {
-  animation: fade-in 0.3s;
-}
 
-.fade-enter-active .fade-content {
-  animation: bounce-in 0.3s;
-}
 
-.fade-leave-active {
-  animation: fade-in 0.3s;
-  opacity: 0;
-}
-
-.fade-leave-active .fade-content {
-  animation: bounce-in 0.3s;
-}
 
 .icon-style {
-  margin-right: 0.5rem;
+  /* margin-right: 0.5rem; */
   color: white;
-  height: 1.25rem;
-  width: 1.25rem;
+  height: 1.75rem;
+  width: 1.75rem;
 }
 </style>

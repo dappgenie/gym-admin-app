@@ -17,7 +17,7 @@
 
   <div class="flex justify-between">
       <SideBar />
-      <div class="w-[88vw]">
+      <div class="w-[86vw]">
         <Header />
         <div class="div-class">
           <div class="w-full relative">
@@ -32,7 +32,7 @@
 
 <style scoped>
   .sub_div{
-    @apply flex justify-between w-[88vw];
+    @apply flex justify-between w-[86vw];
   }
 
   .slot-class {

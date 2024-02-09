@@ -4,7 +4,7 @@
     <div>
       <Header />
       <div class="flex justify-between">
-          <SideBar />
+          <!-- <SideBar /> -->
 
         <div class="w-full ">
           <slot />

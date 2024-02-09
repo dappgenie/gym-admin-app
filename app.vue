@@ -1,8 +1,8 @@
 <script setup lang="ts">
-const color = useColorMode()
-onMounted(()=>{
-    color.value === 'dark' ? 'light' : ''   
-})
+// const color = useColorMode()
+// onMounted(()=>{
+//     color.preference = color.value === 'dark' ? 'light' : ''  // Toggles between dark and light color preference
+// })
 </script>
 <template>
     <!-- <NuxtWelcome /> -->
